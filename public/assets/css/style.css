@@ -1,0 +1,219 @@
+/* Custom styles for WebShop China */
+
+/* Base styles */
+:root {
+    --primary-color: #3b82f6;
+    --primary-hover: #2563eb;
+    --primary-dark: #1d4ed8;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-900: #111827;
+}
+
+/* Custom button styles */
+.btn-primary {
+    @apply bg-blue-600 text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700 transition-colors;
+}
+
+.btn-secondary {
+    @apply bg-gray-200 text-gray-800 px-4 py-2 rounded-md font-medium hover:bg-gray-300 transition-colors;
+}
+
+/* Product card hover effects */
+.product-card {
+    @apply bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200 border;
+}
+
+.product-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Loading spinner */
+.spinner {
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid var(--primary-color);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Toast notifications */
+.toast {
+    @apply fixed top-4 right-4 bg-white border border-gray-200 rounded-lg shadow-lg p-4 max-w-sm z-50;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.toast.show {
+    transform: translateX(0);
+}
+
+.toast.success {
+    @apply border-green-200 bg-green-50;
+}
+
+.toast.error {
+    @apply border-red-200 bg-red-50;
+}
+
+/* Mobile navigation */
+.mobile-menu {
+    @apply fixed inset-0 bg-black bg-opacity-50 z-40;
+}
+
+.mobile-menu-panel {
+    @apply bg-white w-64 h-full shadow-lg transform transition-transform;
+}
+
+.mobile-menu.closed .mobile-menu-panel {
+    transform: translateX(-100%);
+}
+
+/* Search suggestions */
+.search-suggestions {
+    @apply absolute top-full left-0 right-0 bg-white border border-gray-200 rounded-b-md shadow-lg z-30 max-h-60 overflow-y-auto;
+}
+
+.search-suggestion {
+    @apply px-4 py-2 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0;
+}
+
+/* Product image gallery */
+.product-gallery {
+    @apply grid gap-2;
+}
+
+.main-image {
+    @apply col-span-3 aspect-square bg-gray-100 rounded-lg overflow-hidden;
+}
+
+.thumbnail-grid {
+    @apply grid grid-cols-1 gap-2;
+}
+
+.thumbnail {
+    @apply aspect-square bg-gray-100 rounded-md overflow-hidden cursor-pointer border-2 border-transparent hover:border-blue-500;
+}
+
+.thumbnail.active {
+    @apply border-blue-500;
+}
+
+/* Cart styles */
+.cart-item {
+    @apply flex items-center space-x-4 py-4 border-b border-gray-200 last:border-b-0;
+}
+
+.quantity-selector {
+    @apply flex items-center border border-gray-300 rounded-md;
+}
+
+.quantity-btn {
+    @apply px-3 py-1 text-gray-600 hover:bg-gray-100;
+}
+
+.quantity-input {
+    @apply w-16 text-center border-none outline-none;
+}
+
+/* Responsive utilities */
+@media (max-width: 640px) {
+    .grid-responsive {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-responsive {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Animation utilities */
+.fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-up {
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Form styles */
+.form-group {
+    @apply mb-4;
+}
+
+.form-label {
+    @apply block text-sm font-medium text-gray-700 mb-2;
+}
+
+.form-input {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+}
+
+.form-error {
+    @apply text-red-600 text-sm mt-1;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    @apply flex items-center space-x-2 text-sm text-gray-600;
+}
+
+.breadcrumb-item {
+    @apply hover:text-blue-600;
+}
+
+.breadcrumb-separator {
+    @apply text-gray-400;
+}
+
+/* Price styles */
+.price {
+    @apply font-bold text-blue-600;
+}
+
+.price-original {
+    @apply text-gray-500 line-through text-sm;
+}
+
+.price-sale {
+    @apply text-red-600 font-bold;
+}
+
+/* Badge styles */
+.badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.badge-success {
+    @apply bg-green-100 text-green-800;
+}
+
+.badge-warning {
+    @apply bg-yellow-100 text-yellow-800;
+}
+
+.badge-error {
+    @apply bg-red-100 text-red-800;
+}
+
+.badge-info {
+    @apply bg-blue-100 text-blue-800;
+}

@@ -1,0 +1,55 @@
+{
+  "name": "webshop-china",
+  "version": "1.0.0",
+  "description": "A modern PHP webshop with TailwindCSS and JavaScript",
+  "main": "public/index.php",
+  "scripts": {
+    "dev": "concurrently \"npm run watch-css\" \"php -S localhost:8000 -t public\"",
+    "build": "npm run build-css && npm run build-js",
+    "build-css": "tailwindcss -i ./src/input.css -o ./public/assets/css/tailwind.css --minify",
+    "watch-css": "tailwindcss -i ./src/input.css -o ./public/assets/css/tailwind.css --watch",
+    "build-js": "webpack --mode=production",
+    "watch-js": "webpack --mode=development --watch",
+    "serve": "php -S localhost:8000 -t public",
+    "lint": "eslint public/assets/js/",
+    "lint:fix": "eslint public/assets/js/ --fix",
+    "format": "prettier --write \"public/assets/js/**/*.js\" \"public/assets/css/**/*.css\"",
+    "test": "echo \"No tests specified yet\" && exit 0"
+  },
+  "keywords": [
+    "php",
+    "webshop",
+    "ecommerce",
+    "tailwindcss",
+    "mysql",
+    "javascript"
+  ],
+  "author": "WebShop China Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "autoprefixer": "^10.4.16",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.56.0",
+    "postcss": "^8.4.32",
+    "prettier": "^3.1.1",
+    "tailwindcss": "^3.3.6",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "alpinejs": "^3.13.3",
+    "axios": "^1.6.2"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  }
+}
