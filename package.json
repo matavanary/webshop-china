@@ -1,0 +1,33 @@
+{
+  "name": "webshop-china",
+  "version": "1.0.0",
+  "description": "Chinese E-commerce Website - A starter project for selling Chinese products",
+  "keywords": ["ecommerce", "china", "php", "tailwind", "starter"],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matavanary/webshop-china.git"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32",
+    "postcss-cli": "^11.0.0",
+    "cross-env": "^7.0.3"
+  },
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development postcss public/assets/css/app.css -o public/assets/css/dist/app.css --watch",
+    "build": "cross-env NODE_ENV=production postcss public/assets/css/app.css -o public/assets/css/dist/app.css",
+    "build-prod": "npm run build && npm run minify",
+    "minify": "postcss public/assets/css/dist/app.css -o public/assets/css/dist/app.min.css --env production",
+    "setup": "npm install && npm run build"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
